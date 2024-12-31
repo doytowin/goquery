@@ -8,7 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package gen
+package main
 
 import (
 	"github.com/doytowin/goooqo/rdb"
@@ -134,4 +134,14 @@ func (g *SqlGenerator) genSubquery(fieldName string, subSelect string) {
 
 func (g *SqlGenerator) appendArg(fieldName string) {
 	g.appendIfBody("args = append(args, *q.%s)", fieldName)
+}
+
+func (g *SqlGenerator) incIntent() string {
+	intent := g.intent
+	g.intent = g.intent + "\t"
+	return intent
+}
+
+func (g *SqlGenerator) restoreIntent(intent string) {
+	g.intent = intent
 }

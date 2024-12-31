@@ -8,7 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package gen
+package main
 
 import (
 	"bytes"
@@ -135,14 +135,4 @@ func (g *generator) nextStruct() *ast.TypeSpec {
 
 func (g *generator) appendBuildMethod(*ast.TypeSpec) {
 	panic("implement me")
-}
-
-func (g *SqlGenerator) incIntent() string {
-	intent := g.intent
-	g.intent = g.intent + "\t"
-	return intent
-}
-
-func (g *SqlGenerator) restoreIntent(intent string) {
-	g.intent = intent
 }
